@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             x:Class="CookieClicker.MainPage"
+             xmlns:local="clr-namespace:CookieClicker"
+             BackgroundImageSource="cookie_cat.png">
+
+    <VerticalStackLayout Padding="25,0" Spacing="25" HorizontalOptions="Start">
+        <Grid VerticalOptions="StartAndExpand" Margin="0,110,0,0" Padding="24" BackgroundColor="Transparent" 
+                  RowDefinitions="0.5*,*,*,*" ColumnDefinitions="*,*" RowSpacing="1" ColumnSpacing="1" HorizontalOptions="Start">
+            <FlexLayout JustifyContent="SpaceBetween" Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" HorizontalOptions="Start">
+                <Label Text="Cookie and Cats"  FontSize="36" FontAttributes="Bold" />
+            </FlexLayout>
+
+            <FlexLayout JustifyContent="SpaceBetween" Margin="0,15,0,15" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0">
+                <Grid VerticalOptions="Center" RowDefinitions="*,*" ColumnDefinitions="*,*" RowSpacing="1" ColumnSpacing="1" HorizontalOptions="Start">
+                    <FlexLayout JustifyContent="SpaceBetween" Grid.Row="0" Grid.Column="0">
+                        <Button x:Name="CookieButton"
+                            Clicked="CookieButton_Clicked"
+                            ImageSource="cookie.png"
+                            WidthRequest="100"
+                            HeightRequest="100"/>
+                    </FlexLayout>
+                    <FlexLayout JustifyContent="SpaceBetween" Grid.Row="0" Grid.Column="1">
+                        <Label Text="{Binding CookieCount}"
+                            FontSize="24"
+                            FontAttributes="Bold" 
+                            Margin="24,10,0,0"
+                            HorizontalOptions="Center"/>
+                    </FlexLayout>
+                </Grid>
+            </FlexLayout>
+
+            <FlexLayout JustifyContent="SpaceBetween" Margin="0,15,0,15" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0">
+                <Label Text="Upgrades disponíveis"
+                    FontSize="26"
+                    HorizontalOptions="Center"
+                    FontAttributes="Bold"/>
+            </FlexLayout>
+
+            <FlexLayout JustifyContent="SpaceBetween" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="0" >
+                <Grid VerticalOptions="Center" RowDefinitions="*,*,*,*" ColumnDefinitions="*,*" RowSpacing="1" ColumnSpacing="1" HorizontalOptions="Center">
+                    <FlexLayout JustifyContent="SpaceBetween" Margin="0,0,0,15" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="GrandMother - 10 Cookies" FontSize="16"/>
+                                    <Span Text="{x:Static system:Environment.NewLine}"/>
+                                    <Span Text="1 Cookie/5s" FontSize="16"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </FlexLayout>
+                    <FlexLayout JustifyContent="SpaceBetween" Grid.Row="1" Grid.Column="0">
+                        <Button x:Name="GrandMotherButton" 
+                            Clicked="BuyGrandMotherButton_Clicked"
+                            IsEnabled="{Binding CanBuyGrandMother}"
+                            ImageSource="grandmother.png"
+                            WidthRequest="100"
+                            HeightRequest="100"/>
+                    </FlexLayout>
+                    <FlexLayout JustifyContent="SpaceBetween" Grid.Row="1" Grid.Column="1">
+                        <Label Text="{Binding GrandMotherCount}"
+                            FontSize="24"
+                            Margin="24,10,0,0"
+                            FontAttributes="Bold" 
+                            HorizontalOptions="Center"/>
+                    </FlexLayout>
+                    <FlexLayout JustifyContent="SpaceBetween" Margin="0,0,0,15" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Candy House - 50 Cookies" FontSize="16"/>
+                                    <Span Text="{x:Static system:Environment.NewLine}"/>
+                                    <Span Text="5 Cookie/10s" FontSize="16"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </FlexLayout>
+                    <FlexLayout JustifyContent="SpaceBetween" Grid.Row="3" Grid.Column="0">
+                        <Button x:Name="HouseCandyButton"
+                        Clicked="BuyHouseCandyButton_Clicked"
+                        IsEnabled="{Binding CanBuyHouseCandy}"
+                        ImageSource="housecandy.png"
+                        WidthRequest="100"
+                        HeightRequest="100"/>
+                    </FlexLayout>
+                    <FlexLayout JustifyContent="SpaceBetween" Grid.Row="3" Grid.Column="1">
+                        <Label Text="{Binding HouseCandyCount}"
+                            FontSize="24"
+                            Margin="24,10,0,0"
+                            FontAttributes="Bold" 
+                            HorizontalOptions="Center"/>
+                    </FlexLayout>
+                </Grid>
+            </FlexLayout>
+        </Grid>
+    </VerticalStackLayout>
+
+</ContentPage>
